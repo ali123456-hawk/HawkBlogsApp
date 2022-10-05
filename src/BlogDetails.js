@@ -5,10 +5,10 @@ import useFetch from './useFetch';
 
 function BlogDetails() {
     const {id} = useParams();
-    const {data:blog,loading,error} =  useFetch('http://localhost:8000/blogs/'+id);
+    const {data:blog,loading,error} =  useFetch('http://localhost:5000/blogs/'+id);
     const history = useHistory();
     const handleDelete = () =>{
-     fetch('http://localhost:8000/blogs/' + id,{
+     fetch('http://localhost:5000/blogs/' + id,{
      method:'DELETE' 
 
      })
