@@ -37,8 +37,8 @@ return(
         <textarea required value={body} onChange={(e)=>{setBody(e.target.value)}} ></textarea>
         <label>Blog author:</label>
          <select value={author} onChange={(e)=>{setAuthor(e.target.value)}} >
-          <option value='mario'>HAWK</option>  
-          <option value='yoshi'>ALI</option>
+          <option value='HAWK'>HAWK</option>  
+          <option value='ALI'>ALI</option>
         </select>
        {!loading && <button>Add Blog</button>}
         {loading && <button>Adding Blog</button>}   
