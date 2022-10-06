@@ -3,9 +3,17 @@ import BlogList from "./BlogList";
 
 
 const Home = () => {
-  const dotEnv = process.env.NODE_ENV !== "production";
-  const {REACT_APP_DEV_URL,REACT_APP_PROD_URL} = process.env; 
-  const {data:blogs,loading,error} = useFetch('http://hawkblogsapp.herokuapp.com/blogs')
+  // const Env = process.env.NODE_ENV !== "production";
+  let api = '';
+  if(process.env.NODE_ENV === 'development'){
+     api = process.env.REACT_APP_DEV_URL
+  }
+  if(process.env.NODE_ENV === 'production'){
+     api = process.env.REACT_APP_PROD_URL
+  }
+  console.log(api);
+  
+  const {data:blogs,loading,error} = useFetch(api)
   return (
     <div className="home">
         {error && <div><h1>{error}</h1></div>}
