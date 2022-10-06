@@ -4,7 +4,7 @@ import BlogList from "./BlogList";
 
 const Home = () => {
   // const Env = process.env.NODE_ENV !== "production";
-  let api = process.env.REACT_APP_PROD_URL;
+  let api = process.env.REACT_APP_DEV_URL;
    console.log(api);
   
   const {data:blogs,loading,error} = useFetch(api)
