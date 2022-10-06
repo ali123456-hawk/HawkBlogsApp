@@ -3,8 +3,9 @@ import BlogList from "./BlogList";
 
 
 const Home = () => {
-  
-  const {data:blogs,loading,error} = useFetch( 'http://localhost:5000/blogs')
+  const dotEnv = process.env.NODE_ENV !== "production";
+  const {REACT_APP_DEV_URL,REACT_APP_PROD_URL} = process.env; 
+  const {data:blogs,loading,error} = useFetch(`${dotEnv?REACT_APP_DEV_URL:REACT_APP_PROD_URL}`)
   return (
     <div className="home">
         {error && <div><h1>{error}</h1></div>}

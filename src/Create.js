@@ -10,10 +10,11 @@ const [loading,setLoading] = useState(false);
 const history= useHistory()
 const handleSubmit = (e) => {
     e.preventDefault();
-    
+    const dotEnv = process.env.NODE_ENV !== "production";
+    const {REACT_APP_DEV_URL,REACT_APP_PROD_URL} = process.env;
     const blog = {title,body,author};
     setLoading(true);
-    fetch('http://localhost:5000/blogs',{
+    fetch(`${dotEnv?REACT_APP_DEV_URL:REACT_APP_PROD_URL}`,{
     method : 'POST',
     headers: { "Content-Type": "application/json" },
     body : JSON.stringify(blog)

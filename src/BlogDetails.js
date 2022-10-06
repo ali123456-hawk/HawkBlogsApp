@@ -4,11 +4,14 @@ import useFetch from './useFetch';
 
 
 function BlogDetails() {
+    const dotEnv = process.env.NODE_ENV !== "production";
+  const {REACT_APP_DEV_URL,REACT_APP_PROD_URL} = process.env;
+
     const {id} = useParams();
-    const {data:blog,loading,error} =  useFetch('http://localhost:5000/blogs/'+id);
+    const {data:blog,loading,error} =  useFetch(`${dotEnv?REACT_APP_DEV_URL:REACT_APP_PROD_URL}/${id}`);
     const history = useHistory();
     const handleDelete = () =>{
-     fetch('http://localhost:5000/blogs/' + id,{
+     fetch(`${dotEnv?REACT_APP_DEV_URL:REACT_APP_PROD_URL}/${id}`,{
      method:'DELETE' 
 
      })
