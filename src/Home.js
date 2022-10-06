@@ -8,7 +8,7 @@ const Home = () => {
   if(process.env.NODE_ENV === 'development'){
      api = process.env.REACT_APP_DEV_URL
   }
-  if(process.env.NODE_ENV === 'production'){
+  if(process.env.NODE_ENV === 'test'){
      api = process.env.REACT_APP_PROD_URL
   }
   console.log(api);
