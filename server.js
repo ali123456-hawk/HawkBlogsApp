@@ -6,6 +6,7 @@ const middlewares = jsonServer.defaults({
   static: "./build",
 });
 const PORT = process.env.PORT || 5000;
+server.use(cors());
 server.use(middlewares);
 
 server.use(
@@ -14,7 +15,6 @@ server.use(
   })
 );
 server.use(router);
-server.use(cors());
 server.listen(PORT, () => {
   console.log("Server is running");
 });
