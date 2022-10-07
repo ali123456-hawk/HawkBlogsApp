@@ -3,13 +3,13 @@ import BlogList from "./BlogList";
 
 
 const Home = () => {
-   let api='';
-   if(process.env.NODE_ENV == 'development'){
-     api = 'http://localhost:5000/blogs'
-   }
-   else{
+    let api='';
+    if(process.env.NODE_ENV === 'development'){
+      api = 'http://localhost:5000/blogs'
+    }
+    else{
     api="/blogs"
-   } 
+    } 
   const {data:blogs,loading,error} = useFetch(api)
   return (
     <div className="home">
